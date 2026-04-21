@@ -19,12 +19,12 @@ This version includes the core functionality of a URL shortener platform.
 
 ---
 
-##  Tech Stack
+## 🛠 Tech Stack
 
 - Node.js
 - Express.js
-- MongoDB
-- Mongoose
+- PostgreSQL
+- Drizzle ORM
 - dotenv
 
 ---
@@ -79,11 +79,13 @@ url-shortener/
 │── src/
 │   ├── config/
 │   ├── controllers/
-│   ├── models/
+│   ├── db/
 │   ├── routes/
 │   ├── services/
+│   ├── schema/
 │   └── app.js
 │── server.js
+│── drizzle.config.js
 │── .env
 │── package.json
 ```
@@ -91,8 +93,8 @@ url-shortener/
 ### Installation
 - Clone Repo
 ```
-git clone <https://github.com/Ctnsrma/URL-Shortener-API>
-cd url-shortener
+git clone https://github.com/Ctnsrma/URL-Shortener-API
+cd URL-Shortener-API
 ```
 ### Install Dependencies
 ```
@@ -101,19 +103,34 @@ npm install
 ### Setup Environment Variables
 ```
 PORT=8000
-MONGO_URI=your_mongodb_connection_string
-BASE_URL=http://localhost:5000
+DATABASE_URL=your_postgresql_connection_string
+BASE_URL=http://localhost:8000
 ```
+
+## Database design 
+Main table stores:
+
+id
+original_url
+short_code
+click_count
+created_at
+
+Indexed on:
+
+short_code (unique)
+
 
 ## Learning Goals
 This project demonstrates:
 
-- REST API design
-- Database schema design
-- URL redirection logic
-- Click analytics
-- Error handling
-- Scalable backend foundations
+REST API design
+Relational database schema design
+URL redirection logic
+Click analytics
+Error handling
+ORM integration
+Scalable backend foundations
 
 
 ## Phase 2 (Planned)
