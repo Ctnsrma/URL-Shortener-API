@@ -19,7 +19,7 @@ This version includes the core functionality of a URL shortener platform.
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - Node.js
 - Express.js
