@@ -1,4 +1,5 @@
 import express from 'express';
+import { authenticationMiddleware } from './middleware/auth.middleware.js';
 import userRouter from './routes/user.routes.js'
 const app = express();
 const PORT = process.env.PORT ?? 8000;
