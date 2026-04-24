@@ -14,6 +14,7 @@ export function validateUserToken(token){
         const payload = jwt.verify(token,JWT_SECRET)
         return payload;
     } catch (error) {
+        console.log(error.message);
         return null;
     }
 }

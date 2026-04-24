@@ -1,4 +1,4 @@
-import { validateUserToken } from "../utils/token";
+import { validateUserToken } from "../utils/token.js";
 
 
 /**
@@ -10,9 +10,9 @@ import { validateUserToken } from "../utils/token";
 
 
 export function authenticationMiddleware(req,res,next){
-    const authHeader = req.headers['authorization'];
+    const authHeader = req.headers.authorization;
     if(!authHeader) return next();
-    if(!authHeader.startsWith('Bearer')) return res.status(400).json({error : `Authorization must start with Bearer`})
+    if(!authHeader.startsWith('Bearer ')) return res.status(400).json({error : `Authorization must start with Bearer`})
     const [_,token] = authHeader.split(' '); //   [Bearer,token]
     const payload = validateUserToken(token);
     req.user = payload;
