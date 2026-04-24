@@ -9,6 +9,8 @@ export async function getUserByEmail(email){
         firstname : usersTable.firstname,
         lastname : usersTable.lastname,
         email : usersTable.email,
+        salt : usersTable.salt,
+        password: usersTable.password,
     })
     .from(usersTable)
     .where(eq(usersTable.email,email));
@@ -16,6 +18,10 @@ export async function getUserByEmail(email){
     return existingUser;
 }
 
+export async function existingUser(email){
+    const user = await getUserByEmail(email);
+    return !!user;
+}
 
 export async function createUser({firstname,lastname,email,password,salt}){
     const [user] = await db
